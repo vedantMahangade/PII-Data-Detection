@@ -2,9 +2,11 @@
 
 A reliable automated LLM based ML Model for detecting Personally Identifiable Information (PII) in student writing.
 
-[StreamLit app hosted on HuggingFace](https://huggingface.co/spaces/vedantM/PII-Data-Detection/)
+#### [StreamLit app hosted on HuggingFace](https://huggingface.co/spaces/vedantM/PII-Data-Detection/)
 
-### [Hugging Face Git Repo Link for App](https://huggingface.co/spaces/vedantM/PII-Data-Detection/tree/main)
+#### [Hugging Face Git Repo Link for App](https://huggingface.co/spaces/vedantM/PII-Data-Detection/tree/main)
+
+#### [Fine Tuned Big Bird Model](https://huggingface.co/vedantM/BigBird-PII)
 
 ## Problem Statement
 The presence of personally identifiable information (PII) poses a barrier to the analysis and release of open educational datasets due to privacy concerns for students. While manual review remains the most reliable method for PII detection, it is costly and limits the scalability of educational datasets. Existing automatic PII detection techniques, primarily relying on named entity recognition (NER), struggle with accurately identifying and distinguishing sensitive PII, such as student names, from non-sensitive information.
