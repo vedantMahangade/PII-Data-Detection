@@ -8,6 +8,8 @@ The presence of personally identifiable information (PII) poses a barrier to the
 ## Folder Structure
 
     .
+    ├── app/    : a submodule for web application developed using streamlit
+    │
     ├── data/ 
     │   ├── Most data files are not uploaded due to size constraints
     │   ├──test-essay*.txt : Sample Input Test essays for model inference
@@ -25,7 +27,7 @@ The presence of personally identifiable information (PII) poses a barrier to the
     │   └── dict.py :   pythin dictionary file used for mapping
     │
     ├── .gitignore
-    │
+    ├── .gitmodules
     ├── README.md
     │
     └── requirements.yaml
