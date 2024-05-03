@@ -1,4 +1,4 @@
-# PII Data Detection using LLM
+# PII Data Detection using Transformers
 
 A reliable automated LLM based ML Model for detecting Personally Identifiable Information (PII) in student writing.
 
@@ -8,25 +8,29 @@ The presence of personally identifiable information (PII) poses a barrier to the
 ## Folder Structure
 
     .
-    ├── data/
+    ├── data/ 
+    │   ├── Most data files are not uploaded due to size constraints
+    │   ├──test-essay*.txt : Sample Input Test essays for model inference
+    │   └──test.json : Test data from kaggle competetion 
     │
     ├── notebooks/
-    │   ├── parse_ai4privacy_dataset_10k.ipynb  : used to parse dataset into required json format
-    │   ├── parse_ai4privacy_dataset_10k.ipynb  : used to parse dataset into required json format
-    │   └── PII.ipynb
-    │
+    │   ├── Data Preprocessing and EDA.ipynb  : used to mearge original dataset and external dataset
+    │   ├── Inference.ipynb.ipynb  : compares output of different fine tuned models
+    │   ├── ModelPush.ipynb : pushes model to hugging face
+    │   ├── PII_Train_BigBird.ipynb : training script for BigBird
+    │   ├── PII_Train_DistilBERT.ipynb : training script for DistilBERT
+    │   └── PII_Train_RoBERTa.ipynb : training script for RoBERTa
+    │   
     ├── src/
     │   └── dict.py :   pythin dictionary file used for mapping
     │
     ├── .gitignore
     │
-    └── README.md
+    ├── README.md
+    │
+    └── requirements.yaml
 
 
-
-## Source
-The project is based on a Kaggle Competition hosted by The Learning Agency Lab:
-[Competition Link](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data/overview)
 
 ## Overview
 The model would detect 7 types of PII given below in student-written essays:
@@ -38,11 +42,6 @@ The model would detect 7 types of PII given below in student-written essays:
 - URL_PERSONAL - A URL that might be used to identify a student.
 - STREET_ADDRESS - A full or partial street address that is associated with the student, such as their home address.
 
-The tokens would be labeled in BIO (Beginning, Inner, Outer) format:
-- PII type prefixed with B or I
-- "B-" for the beginning of an entity, e.g., First Name
-- "I-" for continuation of the entity, e.g., Middle Name and last name.
-- “O” for tokens that are not PII and these will not be included in the final output.
 
 ## Dataset Description
 The dataset contains around 22,000 student-written essays in a JSON file.
@@ -65,12 +64,4 @@ The format of the dataset is as below:
 - trailing_whitespace (list of bool): a boolean value indicating whether each token is followed by whitespace.
 - labels (list of string): a token label in BIO format - training data only
 
-## Sample Output
-A sample output would be an aggregation of findings from all essays in test data in a CSV file in the below format:
-
-| row_id | document | token | label         |
-|--------|----------|-------|---------------|
-| 0      | 1        | 9     | B-NAME_STUDENT|
-| 1      | 1        | 10    | I-NAME_STUDENT|
-| 2      |  2       | 482   | B-NAME_STUDENT|
 
